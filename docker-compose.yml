@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: victor
+      MYSQL_PASSWORD: victor
+    expose:
+      - 3306
+    restart: always
+
+  app:
+    image: trafex/alpine-nginx-php7
+    volumes:
+      - ./app/:/var/www/html
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
+    restart: always
