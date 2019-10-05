@@ -8,6 +8,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: victor
       MYSQL_PASSWORD: victor
+    volumes:
+      - ./mysqlinit/:/docker-entrypoint-initdb.d
     expose:
       - 3306
     restart: always
