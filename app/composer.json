@@ -1,0 +1,13 @@
+{
+    "name": "vico/flighthub",
+    "description": "Test for Flighthub",
+    "authors": [
+        {
+            "name": "Victor Piolin",
+            "email": "victor.piolin@gmail.com"
+        }
+    ],
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
+}
