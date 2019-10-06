@@ -7,20 +7,24 @@ require './vendor/autoload.php';
  * Models
  */
 require_once './model/airline.php';
+require_once './model/flight.php';
 
 /**
  * Managers
  */
 require_once './manager/manager.php';
 require_once './manager/airlinesManager.php';
+require_once './manager/flightManager.php';
 
 // Initiate the Airlines Manager
 $airlinesManager = new AirlinesManager();
+$flightManager = new flightManager();
 
 /**
  * Handlers
  */
 require_once './handler/airlineHandler.php';
+require_once './handler/flightHandler.php';
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     // Flight's route
@@ -60,7 +64,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     });
 
     // Airline's route
-    $r->addGroup( '/airlines', function (FastRoute\RouteCollector $r) {
+    $r->addGroup( '/airline', function (FastRoute\RouteCollector $r) {
         // Return all airlines
         $r->addRoute('GET', '/', 'getAllAirline');
 

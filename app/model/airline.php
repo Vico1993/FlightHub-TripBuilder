@@ -47,7 +47,7 @@
          *
          * @param int $id
          */
-        public function setId( $id ) {
+        public function setId( int $id ) {
             $this->_id = $id;
         }
 
@@ -65,7 +65,7 @@
          *
          * @param string $code
          */
-        public function setCode( $code ) {
+        public function setCode( string $code ) {
             $this->_code = $code;
         }
 
@@ -83,7 +83,7 @@
          *
          * @param string $name
          */
-        public function setName( $name ) {
+        public function setName( string $name ) {
             $this->_name = $name;
         }
     }
