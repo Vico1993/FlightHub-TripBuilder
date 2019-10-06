@@ -5,9 +5,7 @@ services:
     container_name: mysql
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: victor
-      MYSQL_PASSWORD: victor
+      MYSQL_ROOT_PASSWORD: flighthub
     volumes:
       - ./mysqlinit/:/docker-entrypoint-initdb.d
     expose:
