@@ -17,6 +17,11 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addGroup( '/airline', function (FastRoute\RouteCollector $r) {
         include_once './route/airlineRoute.php';
     });
+
+    // Trip's route
+    $r->addGroup( '/trip', function (FastRoute\RouteCollector $r) {
+        include_once './route/tripRoute.php';
+    });
 });
 
 // Fetch method and URI from somewhere

@@ -132,4 +132,38 @@
 
             return true;
         }
+
+        /**
+         * Return all Flight from a specific parameters ( Airport filter / Time filter )
+         *
+         * @param Array $params
+         * @return Flight[]
+         */
+        public function getFlightFromSpecific( Array $params ) {
+            $result = [];
+
+            if ( !empty( $params ) ) {
+
+                // Set up all the conditions sent
+                foreach ( $params as $param ) {
+                    // Execption from the Mysqli library.
+                    // https://packagist.org/packages/joshcam/mysqli-database-class
+                    if ( $param[ 'operator' ] == 'STRING' ) {
+                        $this->_db->where( $param[ 'columns' ] .' = "' . $param[ 'value' ] . '"' );
+                    } else {
+                        $this->_db->where( $param[ 'columns' ], $param[ 'value' ], $param[ 'operator' ] );
+                    }
+                }
+
+                $flights = $this->_db->get( 'Flights' );
+
+                if ( $flights ) {
+                    foreach ( $flights as $flight ) {
+                        $result[] = new Flight( $flight[ 'airline' ], $flight[ 'number' ], $flight[ 'departure_airport' ], $flight[ 'departure_time' ], $flight[ 'arrival_airport' ], $flight[ 'arrival_time' ], $flight[ 'price' ], $flight[ 'id' ] );
+                    }
+                }
+            }
+
+            return $result;
+        }
     }

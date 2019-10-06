@@ -29,3 +29,4 @@ $airportManager = new airportManager();
 require_once './handler/airlineHandler.php';
 require_once './handler/flightHandler.php';
 require_once './handler/airportHandler.php';
+require_once './handler/tripHandler.php';
