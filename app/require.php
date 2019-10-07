@@ -9,6 +9,7 @@ require './vendor/autoload.php';
 require_once './model/airline.php';
 require_once './model/flight.php';
 require_once './model/airport.php';
+require_once './model/trip.php';
 
 /**
  * Managers
